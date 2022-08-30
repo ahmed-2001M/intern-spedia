@@ -1,14 +1,9 @@
 from PIL import Image
-import os
 import PySimpleGUI as sg
 import numpy as np
-from numpy import asarray, average, int8
-from numpy import pad, size
 import matplotlib.pyplot as plt
 import pathlib
 from helper import HELP
-from io import BytesIO
-import cv2
 from image import IMAGE
 
 
@@ -20,7 +15,7 @@ window = sg.Window('Image Inhancement', layout = layout , margins=(0, 0), resiza
 while True:
     event, values = window.read()
     # print(event, values)
-    if event in (None, 'Exit'):
+    if event in [None, 'Exit']:
         break
     
     
@@ -33,5 +28,4 @@ while True:
         image.image = help.cartoonify(image.image)
         bio = image.convert()
         window["-IMAGE-"].update(data = bio.getvalue())
-        
 
